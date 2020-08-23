@@ -1,0 +1,169 @@
+\documentclass[english]{article}
+\usepackage[latin9]{inputenc}
+\usepackage[letterpaper]{geometry}
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+
+\begin{document}
+
+%*********** Use this for project proposal ************
+\emph{\footnotesize{CIS 520 Fall 2019, Project Proposal}}
+%*********** Use this for project checkpoint ************
+%\emph{\footnotesize{CIS 520 Fall 2019, Project Checkpoint}}
+
+%*********** Use this for project report ************
+%\emph{\footnotesize{CIS 520 Fall 2019, Project Report}}
+
+\vspace{12pt}
+
+
+%*********** Use this header for project checkpoint, feel free to modify for final report ************
+
+%Fill in your project title
+\textbf{\Large{YouTube Video Popularity Prediction Using View Counts as Criteria with Regression and Neural Networks}}
+
+\vspace{1cm}
+
+\textbf{Team Members:}
+
+%Fill in your team details; remove any lines that are not needed
+\begin{itemize}
+ \item Hanxiang Pan; Email: \texttt{henrypan@seas.upenn.edu}
+ \item Jialin Lou; Email: \texttt{joyljl@seas.upenn.edu}
+ \item Zijie Song; Email: \texttt{szjjay74@seas.upenn.edu} 
+\end{itemize}
+
+\hline
+
+%*********** Use this to include abstract in project report (comment out in project proposal) ************
+
+%\begin{abstract}
+%Abstract for project report goes here.
+%\end{abstract}
+
+%*********** Recommended section structure for project proposal below (comment out in project report and checkpoint) ************
+
+\section{Motivation}
+
+With the ever lowering entry barrier for video publication on platforms like YouTube and Instagram, more and more people start to regard these platforms as simple way to convey their ideas and start to play a more significant role in people’s life. It has become a way to get to know people around the world as well as for the world to know you. With more sponsors pouring more money on creators, predicting the popularity of a new upcoming video upload has its business importance. We want to create a model to predict how popular a video might become to assist with such business decisions.\\
+Datasets:
+\begin{itemize}
+\item Trending Youtube Video Stats: https://www.kaggle.com/datasnaek/youtube-new
+\item Youtube Channels: https://www.kaggle.com/babikov/youtube-channels-100000
+\item Trending Youtube (with comments): https://www.kaggle.com/datasnaek/youtube
+\end{itemize}
+\item $\textbf{N}$ - number of youtube trending videos
+\item $\textbf{p}$ - related features: trending date, title, channel title, category, publish time, tags, views, likes, dislike, comment count, thumbnail, video description, is comments disabled, is rating disabled, comments
+
+\section{Related Work}
+
+%\textit{Tip: we suggest using bibtex for easy citation management. For example, here are citations to Bishop's book \cite{Bishop06} and the UCI machine learning repository \cite{DuaKa17}.} \\ \\
+To come up with our unique solution to the proposed problem, we referenced these above two publications. 
+\begin{itemize}
+    \item The first publication named \textit{Web Video Popularity Prediction using Sentiment and Content Visual Features} \cite{vp1} showcased a way to integrate sentiment features on titles and content visual features (thumbnails) into popularity analysis.
+    \item The second publication we found named \textit{Popularity Prediction of Videos in YouTube as Case Study: A Regression Analysis Study} \cite{vp2} showcased logistic regression to predict popularity based on a variety number of features, and used step-wise regression to pick out a minimum number of features to maximize prediction accuracy.
+\end{itemize}
+
+
+\section{Problem Formulation}
+
+\begin{enumerate}
+    \item We choose "view counts" $(y)$ as a proxy for determining the popularity of a video.
+    \item Cluster factors that influences the view count of a YouTube Video.
+    \item Use dimension reduction methods to filter features based on their effect on view count.
+    \item Perform regression on the set of selected features to predict the view count of a YouTube video.
+\end{enumerate}
+
+\section{Methods}
+\begin{itemize}
+    \item Cluster factors: K-means Clustering
+    \item Filter features: Principal Components Analysis 
+    \item Predict view count: Logistic Regression, Linear Regression, Convolutional Neural Network, and Recurrent Neural Network.
+\end{itemize}
+
+\section{Evaluation}
+For evaluation, we will first use MSE as a measure of accuracy of our project. Since we are predicting the potential view counts of a YouTube video, MSE will be a more reasonable way to learn the result of our predicting model.
+\begin{itemize}
+    \item MSE = $\frac{1}{n}*\sum$(predicted $\hat{y}$  - actual $y$)$^2$
+\end{itemize} 
+\section{Project Plan}
+% A suggested outline for your schedule is below, but feel free to modify as needed.
+\subsection*{Week 1: 11/4}
+
+\begin{itemize}
+    \item Come up with project proposal.  (All)
+    \item Doing related work research.   (All)
+    \item Finding appropriate datasets.  (All)
+
+\end{itemize}
+
+\subsection*{Week 2: 11/11}
+
+\begin{itemize}
+    \item Do necessary data processing to get an ideal dataset.  (Jialin)
+    \item Split data to training and validation datasets.  (Hanxiang)
+    \item Compute descriptive statistics to get an overall understanding of the problem.  (Zijie)
+    \item Run K-means Clustering on all features.  (All)
+    \item Filtering irrelevant features and extract useful features with PCA.  (All)
+    \item Run naive prediction on baseline model.  (All)
+
+\end{itemize}
+
+\subsection*{Week 3: 11/18}
+
+\begin{itemize}
+    \item (Continuing) Filtering irrelevant features and extract useful features with PCA.  (All)
+    \item (Continuing) Run naive prediction on baseline model.  (All)
+    \item Experiment and incrementally improve prediction model.\\
+        \emph{Linear regression model  (Jialin)}\\
+        \emph{Logistic regression model  (Hanxiang)}\\
+        \emph{RNN  (Zijie)}\\
+        \emph{CNN  (All)}\\
+
+
+\end{itemize}
+
+\subsection*{Week 4: 11/25}
+
+\begin{itemize}
+    \item Minor improvement on predicted models.
+    \item Prepare for final report.
+
+\end{itemize}
+
+\subsection*{Week 5: 12/2}
+
+\begin{itemize}
+    \item Wrap up and determine the final prediction model. (All)
+    \item Draw conclusions based on current models and predictions. (All)
+    \item Research on related literatures and possible future research extensions for the project. (All)
+    \item Retrospectives (All)
+
+\end{itemize}
+
+%*********** Recommended section structure for project report and checkpoint below (comment out in project proposal) ************
+
+%\section{Motivation}
+
+%\section{Related Work}
+
+%\section{Data Set}
+
+%\section{Problem Formulation}
+
+%\section{Methods}
+
+%\section{Experiments and Results}
+
+%\section{Conclusion and Discussion}
+
+
+%\section*{Acknowledgments}
+
+\newpage
+%============================= BIBLIOGRAPHY ===============================
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
+
